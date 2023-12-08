@@ -7,7 +7,8 @@ services:
     ## Enable the following line if you already use AP_EXECUTION_MODE with SANDBOXED or old activepieces, checking the breaking change documentation for more info.
     ## privileged: true
     ports:
-      - '8080:80'
+      - '8284:80'
+      - '3152:3000'
     depends_on:
       - postgres
       - redis
@@ -24,6 +25,8 @@ services:
       - 'POSTGRES_USER=${AP_POSTGRES_USERNAME}'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 41963:5432
     networks:
       - activepieces
   redis:
