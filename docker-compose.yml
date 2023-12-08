@@ -2,7 +2,7 @@ version: '3.0'
 services:
   activepieces:
     image: activepieces/activepieces:0.14.3
-    container_name: activepieces
+    container_name: activepieces1
     restart: unless-stopped
     ## Enable the following line if you already use AP_EXECUTION_MODE with SANDBOXED or old activepieces, checking the breaking change documentation for more info.
     ## privileged: true
@@ -16,7 +16,7 @@ services:
       - activepieces
   postgres:
     image: 'postgres:14.4'
-    container_name: ap-postgres
+    container_name: ap-postgres1
     restart: unless-stopped
     environment:
       - 'POSTGRES_DB=${AP_POSTGRES_DATABASE}'
@@ -28,7 +28,7 @@ services:
       - activepieces
   redis:
     image: 'redis:7.0.7'
-    container_name: ap-redis
+    container_name: ap-redis1
     restart: unless-stopped
     volumes:
       - 'redis_data:/data'
